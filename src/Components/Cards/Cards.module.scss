@@ -1,0 +1,33 @@
+@import "../../style/variables.scss";
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  height: 60px;
+  margin: auto auto;
+}
+.word {
+  border: 2px solid $mtc;
+  border-radius: 10px;
+  background-color: $mbc;
+  color: $mtc;
+  font: $mf;
+  padding-left: 1%;
+  align-content: center;
+  margin: 2% 1%;
+}
+button {
+  background-color: $mbc;
+  border: 2px solid $mtc;
+  border-radius: 10px;
+  
+  :hover {
+    background-color: aquamarine;
+    cursor: pointer;
+  }
+}
+.buttons {
+  display: flex;
+  justify-content: space-evenly;
+  height: 80%;
+}
