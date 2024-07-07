@@ -1,9 +1,10 @@
 import Button from "../Button/Button";
+import style from "./Header.module.scss"
 
 export default function Header() {
   return (
     <>
-    <div>Header</div>
+    <div></div>
     <Button/>
     </>
   )

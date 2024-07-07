@@ -1,10 +1,11 @@
 import Table from "../Table/Table"
-import Cards from "../Cards/Cards"
+import style from "./Main.module.scss"
+
 export default function Main() {
   return (
-   <>
-   <Table/>
-<Cards/>
-   </>
+    <>
+      <Table/>
+      
+    </>
   )
 }

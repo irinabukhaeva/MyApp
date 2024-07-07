@@ -1,7 +1,7 @@
-import Header from "./Header/Header"
-import Main from "./Main/Main"
+import Header from "../Header/Header"
+import Main from "../Main/Main"
 
-import "../style/App.css"
+import style from "./App.module.scss"
 function App() {
   return <>
   <header>
