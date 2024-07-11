@@ -3,8 +3,9 @@
 .row {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  height: 60px;
+  height: 80px;
   margin: auto auto;
+  max-width: 90%;
 }
 .word {
   border: 2px solid $mtc;
@@ -15,19 +16,20 @@
   padding-left: 1%;
   align-content: center;
   margin: 2% 1%;
-}
-button {
-  background-color: $mbc;
-  border: 2px solid $mtc;
-  border-radius: 10px;
   
-  :hover {
-    background-color: aquamarine;
-    cursor: pointer;
-  }
 }
+
 .buttons {
   display: flex;
   justify-content: space-evenly;
-  height: 80%;
+  flex-wrap: wrap;
+  align-content: center;
+ 
+}
+
+.svg {
+  border: 2px solid $mtc;
+  border-radius: 10px;
+  background-color: $mbc;
+
 }
