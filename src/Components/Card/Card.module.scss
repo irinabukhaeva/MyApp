@@ -1,0 +1,25 @@
+@import "../../style/variables.scss";
+
+.card {
+    text-align: center;
+    align-content: center;
+    margin: 0 auto;
+    border: 2px solid $mtc;
+    border-radius: 10px;
+    font: $mf;
+    color: $mtc;
+    background-color: $mbc;
+    width: 20%;
+    height: 30vh;
+}
+.word {
+    margin: 5%;
+}
+.button {
+    font: $mf;
+    color: $mbc;
+    border: none;    
+    border-radius: 10px;
+    background-color: $mtc;
+    width: 70%;
+}
