@@ -3,7 +3,6 @@ import style from "./Cards.module.scss";
 import SaveIcon from '../SaveIcon/SaveIcon';
 import EditIcon from '../EditIcon/EditIcon';
 import DeleteIcon from '../DeleteIcon/DeleteIcon';
-import Card from '../Card/Card';
 import ResetIcon from '../ResetIcon/ResetIcon';
 
 export default function Cards(props) {
@@ -14,7 +13,6 @@ export default function Cards(props) {
     transcription,
     russian
   });
-  
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -28,15 +26,16 @@ export default function Cards(props) {
     setIsEditing(!isEditing);
   };
 
-  const resetEdit = () => {
-    english = english;
-    transcription = transcription;
-    russian = russian;
-  }
+  const handleCancelEdit = () => {
+    setWord({
+      english,
+      transcription,
+      russian
+    });
+    setIsEditing(false);
+  };
 
   return (
-    <>
-   
     <div className={style.row}>
       {isEditing ? (
         <>
@@ -71,17 +70,17 @@ export default function Cards(props) {
       )}
       <div className={style.buttons}>
         <button onClick={handleEdit} className={style.svg}>
-          {isEditing ? (<SaveIcon/>) : (<EditIcon/>)}
+          {isEditing ? (<SaveIcon />) : (<EditIcon />)}
         </button>
-        <div>
-          {isEditing ? (<button className={style.svg}><ResetIcon/></button>) : ("")}</div>
+        {isEditing && (
+          <button onClick={handleCancelEdit} className={style.svg}>
+            <ResetIcon />
+          </button>
+        )}
         <button className={style.svg}>
-          <DeleteIcon/>
+          <DeleteIcon />
         </button>
-        
-          
       </div>
     </div>
-    </>
   );
 }

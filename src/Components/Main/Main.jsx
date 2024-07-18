@@ -1,12 +1,12 @@
 
-import Card from "../Card/Card"
+import Slider from "../Slider/Slider"
 import Table from "../Table/Table"
 import style from "./Main.module.scss"
 
 export default function Main() {
   return (
     <>
-      <Card/>
+      <Slider/>
       <Table/>
       
     </>
