@@ -3,7 +3,7 @@
 .card {
     text-align: center;
     align-content: center;
-    margin: 0 auto;
+    margin: 0 1%;
     border: 2px solid $mtc;
     border-radius: 10px;
     font: $mf;
@@ -22,4 +22,9 @@
     border-radius: 10px;
     background-color: $mtc;
     width: 70%;
+}
+.button:hover {
+    transform: scale(1.1);
+    transition: 1s;
+    cursor: pointer;
 }

@@ -1,0 +1,21 @@
+@import "../../style/variables.scss";
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.button {
+    font: $mf;
+    color: $mbc;
+    border: none;    
+    border-radius: 10px;
+    background-color: $mtc; 
+}
+.button:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+    transition: 1s;
+}
+.empty {
+    width: 12%;
+}
