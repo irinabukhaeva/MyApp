@@ -5,14 +5,10 @@ import style from "./Slider.module.scss"
 
 export default function Slider() {
     const [count, setCount] = useState(0)
-    const handlePrev = ()=>{
-        
+    const handlePrev = ()=>{        
         setCount((prevCount) => prevCount-1)
     } 
-    const handleNext = ()=>{
-        if (count>(words.length-1)) {
-            count=0
-        }
+    const handleNext = ()=>{        
         setCount((prevCount) => prevCount+1)
     }
     return (
