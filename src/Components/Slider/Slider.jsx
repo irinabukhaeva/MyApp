@@ -10,9 +10,7 @@ export default function Slider() {
         setCount((prevCount) => prevCount-1)
     } 
     const handleNext = ()=>{
-        if (count>(words.length-1)) {
-            count=0
-        }
+        
         setCount((prevCount) => prevCount+1)
     }
     return (
