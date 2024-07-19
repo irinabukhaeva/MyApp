@@ -1,1 +1,20 @@
+@import "../../style/variables.scss";
 
+
+.header {
+    margin: 0 auto;
+    padding: 1%;
+    width: 100%;
+    background-color: $mbc;
+    border-bottom: 1px solid $mtc;
+    position: fixed;
+    z-index: 2;
+}
+.main {
+    margin-top: 8%;
+    height: 80%;
+    width: 100%;
+    text-align: center;
+    align-content: center;
+    position: absolute;
+}
