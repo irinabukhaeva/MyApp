@@ -5,6 +5,7 @@ import style from "./Slider.module.scss"
 
 export default function Slider() {
     const [count, setCount] = useState(0)
+    
     const handlePrev = ()=>{
         
         setCount((prevCount) => prevCount-1)
@@ -13,12 +14,18 @@ export default function Slider() {
         
         setCount((prevCount) => prevCount+1)
     }
+    
+    
     return (
     
+    // <div className={style.container} key={count}>
+    // разобраться почему обнуляется счетчик выученных слов когда я добавляю key={count}, а без key={count} анимация срабатывает только один раз
     <div className={style.container}>
         {count>0 ? (<button onClick={handlePrev} className={style.button}>Предыдущее слово</button>) : <div className={style.empty}></div>}        
         <Card word={words[count]}/>
         {count<(words.length-1) ? <button onClick={handleNext} className={style.button}>Следующее слово</button> : <div className={style.empty}></div>}
+        
+        
     </div>
     
     )
