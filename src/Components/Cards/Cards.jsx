@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import style from "./Cards.module.scss";
 import SaveIcon from '../Icons/SaveIcon/SaveIcon';
 import EditIcon from '../Icons/EditIcon/EditIcon';
