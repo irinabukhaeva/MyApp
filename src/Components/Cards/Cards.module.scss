@@ -1,5 +1,6 @@
 @import "../../style/variables.scss";
 
+
 .row {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -15,21 +16,19 @@
   font: $mf;
   padding-left: 1%;
   align-content: center;
-  margin: 2% 1%;
-  
+  margin: 2% 1%;  
 }
 
 .buttons {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  align-content: center;
- 
-}
+  align-content: center; 
+  }
 
 .svg {
   border: 2px solid $mtc;
   border-radius: 10px;
   background-color: $mbc;
-
+  padding: 2%;
 }

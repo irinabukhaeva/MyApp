@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import style from "./Cards.module.scss";
-import SaveIcon from '../SaveIcon/SaveIcon';
-import EditIcon from '../EditIcon/EditIcon';
-import DeleteIcon from '../DeleteIcon/DeleteIcon';
-import ResetIcon from '../ResetIcon/ResetIcon';
+import SaveIcon from '../Icons/SaveIcon/SaveIcon';
+import EditIcon from '../Icons/EditIcon/EditIcon';
+import DeleteIcon from '../Icons/DeleteIcon/DeleteIcon';
+import ResetIcon from '../Icons/ResetIcon/ResetIcon';
 
 export default function Cards(props) {
   const { english, transcription, russian } = props.item;
