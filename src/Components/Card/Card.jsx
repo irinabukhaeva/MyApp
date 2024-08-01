@@ -10,6 +10,7 @@ export default function Card({ word, onLearned, learnedCounter }) {
   }, [word]);
 
   useEffect(() => {
+    console.log(btnRef.current);
     if (btnRef.current) {
       btnRef.current.focus();
     }

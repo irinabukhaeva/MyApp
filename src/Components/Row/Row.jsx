@@ -1,11 +1,15 @@
 import { useState } from 'react';
-import style from "./Cards.module.scss";
-import SaveIcon from '../Icons/SaveIcon/SaveIcon';
-import EditIcon from '../Icons/EditIcon/EditIcon';
-import DeleteIcon from '../Icons/DeleteIcon/DeleteIcon';
-import ResetIcon from '../Icons/ResetIcon/ResetIcon';
+import {SaveIcon, EditIcon, DeleteIcon, ResetIcon} from '../Icons';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from "yup"
+import style from "./Row.module.scss";
 
-export default function Cards(props) {
+const schema = yup.object({
+    english: yup.string().required("Введите слово").min(2, "Минимум 2 буквы").matches(/^[a-zA-Z]*$/, "Только латинские буквы")
+})
+
+export default function Row (props) {
   const { english, transcription, russian } = props.item;
   const [isEditing, setIsEditing] = useState(false);
   const [word, setWord] = useState({
@@ -13,6 +17,12 @@ export default function Cards(props) {
     transcription,
     russian
   });
+  
+  const {handleSubmit, register, formState: {errors},} = useForm({mode:"onChange", resolver: yupResolver(schema)})
+
+  const onSubmit = (data) => console.log(data);
+
+  
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -21,7 +31,6 @@ export default function Cards(props) {
       [name]: value
     }));
   };
-
   const handleEdit = () => {
     setIsEditing(!isEditing);
   };
@@ -36,16 +45,19 @@ export default function Cards(props) {
   };
 
   return (
-    <div className={style.row}>
+    <form className={style.row} onSubmit={handleSubmit(onSubmit)}>
       {isEditing ? (
         <>
-          <input
-            type="text"
-            name="english"
-            value={word.english}
-            onChange={handleChange}
-            className={style.word}
-          />
+          <div>
+            <input
+              type="text"
+              {...register("english")}
+              value={word.english}
+              onChange={handleChange}
+              className={style.word}
+            />
+            <p>{errors.english?.message}</p>
+          </div>
           <input
             type="text"
             name="transcription"
@@ -69,7 +81,7 @@ export default function Cards(props) {
         </>
       )}
       <div className={style.buttons}>
-        <button onClick={handleEdit} className={style.svg}>
+        <button type="submit" onClick={handleEdit} className={style.svg}>
           {isEditing ? (<SaveIcon />) : (<EditIcon />)}
         </button>
         {isEditing && (
@@ -81,6 +93,6 @@ export default function Cards(props) {
           <DeleteIcon />
         </button>
       </div>
-    </div>
+    </form>
   );
 }
