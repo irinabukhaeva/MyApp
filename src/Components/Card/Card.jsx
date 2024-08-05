@@ -1,7 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
+import { myContext } from '../../Context/MyContext';
 import style from './Card.module.scss';
 
 export default function Card({ word, onLearned, learnedCounter }) {
+  const {data} = useContext(myContext)
   const [flag, setFlag] = useState(false);
   const btnRef = useRef(null);
 

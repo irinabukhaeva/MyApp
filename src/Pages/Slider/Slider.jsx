@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
-import words from "../../words.json";
+import { useContext, useState } from "react"
+import { myContext } from "../../Context/MyContext"
+
 import Card from '../../Components/Card/Card';
 import style from "./Slider.module.scss";
 
 export default function Slider() {
+  const {data} = useContext(myContext)
   const [count, setCount] = useState(0);
   const [learnedCounter, setLearnedCounter] = useState(0);
 
@@ -27,11 +29,11 @@ export default function Slider() {
         <div className={style.empty}></div>
       )}
       <Card key={count}
-        word={words[count]} 
+        word={data[count]} 
         onLearned={handleLearned} 
         learnedCounter={learnedCounter}
       />
-      {count < (words.length - 1) ? (
+      {count < (data.length - 1) ? (
         <button onClick={handleNext} className={style.button}>Следующее слово</button>
       ) : (
         <div className={style.empty}></div>
