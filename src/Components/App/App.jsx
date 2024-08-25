@@ -1,13 +1,12 @@
 import React from "react"
 import Menu from "../Menu/Menu"
 import { Table, Slider, Error } from "../../Pages"
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
+import { Route, Routes } from "react-router-dom"
 
 import style from "./App.module.scss"
 
 function App() {
-  return (
-  <Router>
+  return (  
     <div className={style.container}>
       <header className={style.header}>
       <Menu/>
@@ -20,7 +19,7 @@ function App() {
       </Routes>
         </main>
     </div>
-  </Router>  )
+    )
 }
 
 export default App
