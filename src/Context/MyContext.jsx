@@ -19,9 +19,9 @@ export function MyProvider ({children}){
 
     if (!data) {
         return (
-            <div>
-                loading...
-            </div>
+            <h1>
+                Loading...
+            </h1>
         )
     }
     return <myContext.Provider value = {stateContext}>{children}</myContext.Provider>

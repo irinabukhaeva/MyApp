@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { myContext } from "../../Context/MyContext";
 import JSONS from "../../Services/JSONServices";
+import { SaveIcon } from "../Icons";
 
 
 export default function AddWord() {
@@ -26,7 +27,7 @@ export default function AddWord() {
                 <input 
                   type="text"
                   name="english"
-                  placeholder="Введите слово на наглийском"
+                  placeholder="Введите слово на английском"
                   value={english}
                   onChange={(e)=>{setEnglish(e.target.value)}} />
                 <input 
@@ -41,7 +42,7 @@ export default function AddWord() {
                   placeholder="Введите перевод слова на русский"
                   value={russian}
                   onChange={(e)=>{setRussian(e.target.value)}} />
-                <button type="submit">Добавить новое слово</button>
+                <button type="submit"><SaveIcon/></button>
             </form>
         </div>
     )

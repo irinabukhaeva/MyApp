@@ -1,6 +1,8 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { myContext } from "../../Context/MyContext";
 import {SaveIcon, EditIcon, DeleteIcon, ResetIcon} from '../Icons';
 import { useForm } from 'react-hook-form';
+import JSONS from '../../Services/JSONServices';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup"
 import style from "./Row.module.scss";
@@ -10,6 +12,10 @@ const schema = yup.object({
 })
 
 export default function Row (props) {
+  const {data} = useContext(myContext)
+ 
+  
+  const { updServ, setUpdServ} = useContext(myContext)
   const { english, transcription, russian } = props.item;
   const [isEditing, setIsEditing] = useState(false);
   const [word, setWord] = useState({
@@ -17,6 +23,7 @@ export default function Row (props) {
     transcription,
     russian
   });
+ 
   
   const {handleSubmit, register, formState: {errors},} = useForm({mode:"onChange", resolver: yupResolver(schema)})
 
@@ -29,8 +36,14 @@ export default function Row (props) {
     setWord((prevWord) => ({
       ...prevWord,
       [name]: value
-    }));
+    })
+  
+  );
   };
+
+  
+
+  
   const handleEdit = () => {
     setIsEditing(!isEditing);
   };
@@ -43,6 +56,14 @@ export default function Row (props) {
     });
     setIsEditing(false);
   };
+
+  async function handleWordRemove(item) {
+    // e.preventDefault();
+console.log(data.item);
+
+   await JSONS.removeData(data);
+    setUpdServ(!updServ);
+}
 
   return (
     <form className={style.row} onSubmit={handleSubmit(onSubmit)}>
@@ -82,14 +103,14 @@ export default function Row (props) {
       )}
       <div className={style.buttons}>
         <button type="submit" onClick={handleEdit} className={style.svg}>
-          {isEditing ? (<SaveIcon />) : (<EditIcon />)}
+          {isEditing ? (<SaveIcon/>) : (<EditIcon />)}
         </button>
         {isEditing && (
           <button onClick={handleCancelEdit} className={style.svg}>
             <ResetIcon />
           </button>
         )}
-        <button className={style.svg}>
+        <button onClick={handleWordRemove} className={style.svg}>
           <DeleteIcon />
         </button>
       </div>

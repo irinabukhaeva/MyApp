@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useRef, useContext } from 'react';
-import { myContext } from '../../Context/MyContext';
 import style from './Card.module.scss';
 
 export default function Card({ word, onLearned, learnedCounter }) {
-  const {data} = useContext(myContext)
+ 
   const [flag, setFlag] = useState(false);
   const btnRef = useRef(null);
 
@@ -11,12 +10,13 @@ export default function Card({ word, onLearned, learnedCounter }) {
     if (flag) setFlag(false);
   }, [word]);
 
-  useEffect(() => {
-    console.log(btnRef.current);
-    if (btnRef.current) {
-      btnRef.current.focus();
-    }
-  }, [word]);
+  // useEffect(() => {
+  //     if (btnRef.current) {
+  //     btnRef.current.focus();
+  //   }
+  // }, [word]);
+
+  useEffect(()=>btnRef.current.focus(),[])
 
   const getTranslate = () => {
     setFlag(true);

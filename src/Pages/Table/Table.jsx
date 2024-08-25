@@ -9,13 +9,14 @@ import style from "./Table.module.scss"
 export default function Table() {
   const {data} = useContext(myContext)
   const [modalIsOpen, setModalOpen] = useState(false);
+  console.log(data);
   
   
   return (
     <>
       {data.map((item)=>{
         return <>
-        <div className="container"><Row key={data.id} item={item}/></div></>
+        <div className="container"><Row key={data.item} item={item}/></div></>
       })}
       
         <button
